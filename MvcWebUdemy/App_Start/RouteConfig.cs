@@ -15,7 +15,7 @@ namespace MvcWebUdemy
 
             routes.MapRoute(
                 name: "Person",
-                url: "{controller}/{name}",
+                url: "person/{name}",
                 defaults: new { controller = "Person", action = "Search", name = UrlParameter.Optional }
             );
 

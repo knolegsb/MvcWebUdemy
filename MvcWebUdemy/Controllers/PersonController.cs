@@ -11,7 +11,9 @@ namespace MvcWebUdemy.Controllers
         // GET: Person
         public ActionResult Search(string name="*")
         {
-            return Content(name);
+            //return Content(name);
+            //return RedirectToAction("Contact", "Home");
+            return File(Server.MapPath("~/Content/Site.css"), "text/css");
         }
     }
 }

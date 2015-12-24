@@ -4,14 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcWebUdemy.Models;
 
 namespace MvcWebUdemy.Controllers
 {
     public class HomeController : Controller
     {
+        Database1Entities db = new Database1Entities();
+
         public ActionResult Index()
         {
-            return View();
+            var alldepartments = db.Departments;
+
+            return View(alldepartments);
         }
 
         public ActionResult About()

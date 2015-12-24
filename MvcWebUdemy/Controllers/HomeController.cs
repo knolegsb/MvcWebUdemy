@@ -34,5 +34,25 @@ namespace MvcWebUdemy.Controllers
 
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            var selectedDep = db.Departments.Single(d => d.Id == id);
+
+            return View(selectedDep);
+        }
+
+        public ActionResult Create()
+        {
+            return View(new Department());
+        }
+
+        [HttpPost]
+        public ActionResult Create(Department dep)
+        {
+            db.Departments.Add(dep);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

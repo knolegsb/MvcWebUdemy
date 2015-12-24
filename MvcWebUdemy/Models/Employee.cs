@@ -11,13 +11,26 @@ namespace MvcWebUdemy.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web.Mvc;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Employee
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
+        [Required, Display(Name = "Employee Name")]
         public string Name { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         public System.DateTime Hiredate { get; set; }
-        public string Address { get; set; }
+
+        [Required, Display(Name = "Email Address")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Please provide valid Email Address")]
+        public string Email { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
         public int Department_Id { get; set; }
     
         public virtual Department Department { get; set; }

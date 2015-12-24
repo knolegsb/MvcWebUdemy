@@ -16,11 +16,11 @@ namespace MvcWebUdemy.Controllers
 
         public ActionResult About()
         {
-            var model = new Person() { Name = "Sean" };
+            var xyz = new Person() { Name = "Sean" };
 
             ViewBag.Message = "Your application description page.";
             ViewBag.Location = "Los Angeles";
-            return View(model);
+            return View(xyz);
         }
 
         public ActionResult Contact()
